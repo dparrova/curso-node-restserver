@@ -30,7 +30,8 @@ const UsuarioSchema = Schema({
 //con esta forma se realiza la modificación el json para sacar info de ahi
 //observe que se usa una funcion y se desestructura los elementos a sacar
 UsuarioSchema.methods.toJSON = function(){
-  const {__v, password, ...usuario} = this.toObject();
+  const {__v, password, _id, ...usuario} = this.toObject();
+  usuario.uid=_id;
   return usuario;
 }
 

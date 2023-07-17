@@ -68,17 +68,21 @@ const usuariosPatch = (req,res = response) =>{
 }
 
 const usuariosDelete = async (req,res = response) =>{
-  const id = req.params.id;
+  const {id} = req.params;
+
+
+  const uid = req.uid;
+  const usuarioIdentificado = req.usuarioIdentificado;
   // esto elimina el registro completamente
   //const usarioEliminado = await Usuario.findByIdAndDelete(id);
 
   //mejor si se cambia es el stado
   const usuarioEliminado = await Usuario.findByIdAndUpdate(id,{estado:false});
 
-  res,
-  res.json(
-    usuarioEliminado
-  )
+
+  res.json({
+    usuarioEliminado,
+    usuarioIdentificado});
 }
 
 module.exports = {
