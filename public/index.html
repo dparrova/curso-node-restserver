@@ -36,7 +36,9 @@
           //googleToken
            //console.log('id-token:',response.credential);
            const body  = {id_token : response.credential}
-          fetch('http://localhost:8080/api/auth/google',{
+           const url_r = window.location.hostname.includes('localhost')?'localhost:8080':'cn-res.up.railway.app';
+
+          fetch(`https://${url_r}/api/auth/google`,{
             method: 'POST',
             headers: {
               'Content-Type':'application/json'

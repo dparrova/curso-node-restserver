@@ -71,7 +71,7 @@ const googleSingIn = async(req,res=response)=>{
 
     if(!usuario.estado){
       return res.status(401).json({
-        msg : 'hable con el administrador: usuario bloqueado'
+        msg : 'hable con el administrador, usuario bloqueado'
       })
     }
 
